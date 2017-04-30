@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css">
+    <!--  -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://fiddle.jshell.net/esteban_zero/e6009805/show//css/result-light.css"> -->
+    <style type="text/css">
+    body {
+        font: 18px/22px arial;
+    }
+    
+    table.guitar {
+        background: url(https://thumbs.dreamstime.com/t/wood-texture-maple-background-design-49324284.jpg);
+    }
+    
+    table {
+        border: solid;
+    }
+    
+    table.guitar td {
+        border-right: solid;
+        height: 40px;
+        width: 40px;
+        cursor: pointer;
+        position: relative;
+    }
+    
+    table.guitar td:after {
+        content: " ";
+        display: block;
+        background: rgba(95, 84, 84, 0.27);
+        height: 8px;
+        width: 100%;
+        position: absolute;
+        top: 16px;
+    }
+    
+    table.guitar td:first-child {
+        background-color: gainsboro;
+        border-right: solid 10px gray;
+    }
+    
+    td span {
+        text-align: center;
+        width: 30px;
+        height: 30px;
+        margin: auto;
+        display: block;
+        line-height: 30px;
+        border-radius: 50%;
+    }
+    
+    td.active span {
+        color: white;
+        box-shadow: inset -2px -3px 7px 2px rgba(0, 0, 0, 0.42);
+        background: red;
+    }
+    
+    table.piano td {
+        background: white;
+        border-right: solid;
+        height: 110px;
+        width: 51px;
+        cursor: pointer;
+        position: relative;
+    }
+    
+    table.piano td.c-s,
+    table.piano td.d-s,
+    table.piano td.f-s,
+    table.piano td.g-s,
+    table.piano td.a-s {
+        background: black;
+        color: white;
+        border-color: black;
+        border: none;
+        position: absolute;
+        margin-left: -16px;
+        height: 70px;
+        width: 28px;
+        z-index: 9;
+    }
+    </style>
+    <title>Guitar Scale Generator by esteban_zero</title>
+    <script type='text/javascript'>
+    //<![CDATA[
+    jQuery(document).ready(function($) {
+        var notes = [{
+            "noteStr": 'A',
+            "noteClass": "a"
+        }, {
+            "noteStr": 'A#',
+            "noteClass": "a-s"
+        }, {
+            "noteStr": 'B',
+            "noteClass": "b"
+        }, {
+            "noteStr": 'C',
+            "noteClass": "c"
+        }, {
+            "noteStr": 'C#',
+            "noteClass": "c-s"
+        }, {
+            "noteStr": 'D',
+            "noteClass": "d"
+        }, {
+            "noteStr": 'D#',
+            "noteClass": "d-s"
+        }, {
+            "noteStr": 'E',
+            "noteClass": "e"
+        }, {
+            "noteStr": 'F',
+            "noteClass": "f"
+        }, {
+            "noteStr": 'F#',
+            "noteClass": "f-s"
+        }, {
+            "noteStr": 'G',
+            "noteClass": "g"
+        }, {
+            "noteStr": 'G#',
+            "noteClass": "g-s"
+        }, ];
+
+        console.clear();
+        var notesLength = notes.length;
+
+        function stringConstructor(i) {
+
+            var stringHtml = '';
+            var sarlanga = 0;
+
+            for (a = 0; a < 14; a++) {
+
+                stringHtml += '<td class="' + notes[i].noteClass + '"><span>' + notes[i].noteStr + '</span></td>';
+
+                i++;
+
+                if (i == notesLength) {
+                    i = 0;
+                }
+
+                sarlanga++;
+            }
+
+            return stringHtml;
+        }
+        var diapasonHtml = '';
+
+        diapasonHtml = '<tr>' + stringConstructor(7) + '</tr>';
+        diapasonHtml += '<tr>' + stringConstructor(2) + '</tr>';
+        diapasonHtml += '<tr>' + stringConstructor(10) + '</tr>';
+        diapasonHtml += '<tr>' + stringConstructor(5) + '</tr>';
+        diapasonHtml += '<tr>' + stringConstructor(0) + '</tr>';
+        diapasonHtml += '<tr>' + stringConstructor(7) + '</tr>';
+
+        $('.guitar').html(diapasonHtml);
+        $('.piano').html('<tr>' + stringConstructor(3) + '</tr>');
+
+        var multipleNotes = true;
+
+        $('table td').click(function() {
+
+            if ($('.selectAllNotes').is(':checked')) {
+                multipleNotes = true;
+            } else {
+                multipleNotes = false;
+            }
+
+            if (multipleNotes == true) {
+                var clases = $(this).attr('class');
+                clases = clases.replace("active", "");
+                $('.' + clases).toggleClass("active");
+
+            } else {
+                $(this).toggleClass("active");
+            }
+
+        });
+
+    });
+    </script>
+</head>
+
+<body>
+    <label>Select all notes
+        <input class="selectAllNotes" type="checkbox" checked>
+    </label>
+    <h2>Guitar</h2>
+    <table class="guitar">
+        <tr></tr>
+    </table>
+    <h2>Piano</h2>
+    <table class="piano">
+        <tr></tr>
+    </table>
+</body>
+
+</html>
