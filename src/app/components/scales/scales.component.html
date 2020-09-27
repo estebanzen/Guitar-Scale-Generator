@@ -30,7 +30,7 @@
           <mat-expansion-panel>
             <!-- ROOT NOTE -->
             <mat-expansion-panel-header>
-              <mat-panel-title>
+              <mat-panel-title style="width: 10%;">
                 NOTE ROOT
               </mat-panel-title>
               <mat-panel-description>
@@ -54,7 +54,7 @@
 
             <!-- SCALE -->
             <mat-expansion-panel-header>
-              <mat-panel-title>
+              <mat-panel-title style="width: 10%;">
                 SCALES
               </mat-panel-title>
               <mat-panel-description>
@@ -113,7 +113,7 @@
 
           <mat-expansion-panel>
             <mat-expansion-panel-header>
-              <mat-panel-title>
+              <mat-panel-title style="width: 10%;">
                 FRETS AMOUNT
               </mat-panel-title>
               <mat-panel-description>
@@ -152,7 +152,7 @@
 
           <mat-expansion-panel>
             <mat-expansion-panel-header>
-              <mat-panel-title>
+              <mat-panel-title style="width: 10%;">
                 STRINGS
               </mat-panel-title>
               <mat-panel-description>
@@ -177,26 +177,29 @@
               <button mat-raised-button
                       (click)="onClickAddString()"
                       color="primary"
+                      style="margin-right: 15px;"
                       class="btn">
                 <mat-icon>add</mat-icon>
-                Add
+                ADD
               </button>
 
               <button mat-raised-button
                       (click)="onClickDeleteString()"
                       color="primary"
+                      style="margin-right: 15px;"
                       class="btn">
                 <mat-icon>delete</mat-icon>
-                Del
+                DEL
               </button>
 
               <button [disabled]="!cantidadTrastes"
                       mat-raised-button
                       (click)="diapasonConstructor()"
                       color="primary"
+                      style="margin-right: 15px;"
                       class="btn">
                 <mat-icon>send</mat-icon>
-                Update
+                UPDATE
               </button>
 
             </mat-card>
@@ -269,7 +272,7 @@
         <section class="mat-typography"
                  style="float: left;">
           <h2>
-            Piano
+            PIANO
           </h2>
         </section>
 
@@ -285,16 +288,16 @@
       <mat-card *ngIf="showPianoOptions">
 
         <section class="mat-typography">
-          <h4> Piano Options</h4>
+          <h4> PIANO OPTIONS</h4>
         </section>
         <mat-accordion>
           <mat-expansion-panel>
             <mat-expansion-panel-header>
-              <mat-panel-title>
-                Amount of piano keys
+              <mat-panel-title style="width: 10%;">
+                AMOUNT OF PIANO KEYS
               </mat-panel-title>
               <mat-panel-description>
-                Currently: <b>{{pianoCantidadTeclas}}</b>
+                CURRENTLY: <b>{{pianoCantidadTeclas}}</b>
               </mat-panel-description>
             </mat-expansion-panel-header>
 
