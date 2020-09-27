@@ -136,7 +136,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-toolbar color=\"primary\" class=\"footer-container\">\r\n  <a mat-button routerLink=\".\">Inicio</a>\r\n  <a\r\n    mat-button\r\n    target=\"_blank\"\r\n    href=\"https://material.angular.io/components/categories\"\r\n  >\r\n    Material Angular\r\n  </a>\r\n  <a\r\n    mat-button\r\n    target=\"_blank\"\r\n    href=\"https://github.com/estebanzen/guitar-tools\"\r\n    >GitHub Repo\r\n  </a>\r\n  <a mat-button target=\"_blank\" href=\"https://www.linkedin.com/in/estebanzen/\"\r\n    >Linkedin @EstebanZenzerovich\r\n  </a>\r\n</mat-toolbar>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-toolbar color=\"primary\"\r\n             class=\"footer-container\">\r\n  <a mat-button\r\n     routerLink=\".\">Inicio</a>\r\n  <a mat-button\r\n     target=\"_blank\"\r\n     href=\"https://material.angular.io/components/categories\">\r\n    Material Angular\r\n  </a>\r\n  <a mat-button\r\n     target=\"_blank\"\r\n     href=\"https://github.com/estebanzen/guitar-scale-generator\">GitHub Repository\r\n  </a>\r\n  <a mat-button\r\n     target=\"_blank\"\r\n     href=\"https://www.linkedin.com/in/estebanzen/\">Linkedin @EstebanZenzerovich\r\n  </a>\r\n</mat-toolbar>\r\n");
 
 /***/ }),
 
