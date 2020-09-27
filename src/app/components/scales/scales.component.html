@@ -37,31 +37,6 @@
         <mat-accordion>
 
           <mat-expansion-panel>
-
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                Scales
-              </mat-panel-title>
-              <mat-panel-description>
-                Scale notes
-              </mat-panel-description>
-            </mat-expansion-panel-header>
-
-
-
-            <div class="example-ripple-container">
-              <div *ngFor="let note of notes"
-                   class="example-ripple mat-elevation-z1"
-                   matRipple
-                   (click)="onClickNote(note)"
-                   [ngClass]="{'active mat-elevation-z7' : note.active}">
-                {{note.noteStr}}
-              </div>
-            </div>
-
-          </mat-expansion-panel>
-
-          <mat-expansion-panel>
             <mat-expansion-panel-header>
               <mat-panel-title>
                 Note Root
@@ -85,6 +60,31 @@
                 </mat-select>
               </mat-form-field>
             </mat-card>
+
+          </mat-expansion-panel>
+
+          <mat-expansion-panel>
+
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Scales
+              </mat-panel-title>
+              <mat-panel-description>
+                Scale notes
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+
+
+            <div class="example-ripple-container">
+              <div *ngFor="let note of notes"
+                   class="example-ripple mat-elevation-z1"
+                   matRipple
+                   (click)="onClickNote(note)"
+                   [ngClass]="{'active mat-elevation-z7' : note.active}">
+                {{note.noteStr}}
+              </div>
+            </div>
 
           </mat-expansion-panel>
 
