@@ -3,15 +3,16 @@ import { Component } from "@angular/core";
 @Component({
 	selector: "app-root",
 	templateUrl: "./app.component.html",
-	styleUrls: ["./app.component.scss"]
+	styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
 	title = "guitar-tools";
+	over;
 	menus = [
 		{
-			title: "Scales",
+			title: "SCALES",
 			link: ".",
-			icon: "home"
+			icon: "home",
 		},
 		// {
 		// 	title: "Inicio",

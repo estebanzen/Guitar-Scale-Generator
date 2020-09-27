@@ -85,7 +85,7 @@ export class ScalesComponent implements OnInit {
 	cantidadTrastes: number = 24;
 	cantidadTrastesArr = [];
 	showPianoOptions;
-	showOptions;
+	showOptions = true;
 	sliderColor = "primary";
 	// cantidadCuerdas: number = 6;
 	puntitos = {
@@ -124,16 +124,19 @@ export class ScalesComponent implements OnInit {
 		return t.puntitos[nroTraste];
 	}
 
-	onChangeNoteRoot(aa) {
+	onClickNoteRoot(noteRootValue, index) {
 		var t = this;
 
-		// console.log(
-		// 	t.notes[aa].root
-		// )
 		t.notes.forEach((childObj) => {
-			childObj.root = false;
+			if (noteRootValue.noteStr == childObj.noteStr) {
+				childObj.root = true;
+				childObj.active = true;
+			} else {
+				childObj.root = false;
+			}
 		});
-		t.notes[aa].root = true;
+
+		t.noteRootValue = index;
 	}
 
 	diapasonConstructor() {

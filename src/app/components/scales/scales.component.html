@@ -6,75 +6,61 @@
         <section>
           <mat-slide-toggle [(ngModel)]="showOptions"
                             class="example-margin">
-            Options
+            SCALE
           </mat-slide-toggle>
 
           <mat-slide-toggle [(ngModel)]="showGuitar"
                             class="example-margin"
                             [color]="sliderColor">
-            Guitar
+            GUITAR
           </mat-slide-toggle>
 
           <mat-slide-toggle [(ngModel)]="showPiano"
                             class="example-margin"
                             [color]="sliderColor">
-            Piano
+            PIANO
           </mat-slide-toggle>
         </section>
       </mat-card-content>
 
       <section *ngIf="showOptions">
-        <section class="mat-typography">
-          <h1>Options</h1>
-        </section>
-
-
-        <!-- guitar options -->
-        <section class="mat-typography">
-          <h4>Guitar</h4>
-        </section>
 
         <mat-accordion>
 
           <mat-expansion-panel>
+            <!-- ROOT NOTE -->
             <mat-expansion-panel-header>
               <mat-panel-title>
-                Note Root
+                NOTE ROOT
               </mat-panel-title>
               <mat-panel-description>
-                Currently: <b *ngIf="noteRootValue != undefined"> {{notes[noteRootValue].noteStr}}</b>
+                CURRENTLY: <b *ngIf="noteRootValue != undefined"> {{notes[noteRootValue].noteStr}}</b>
               </mat-panel-description>
             </mat-expansion-panel-header>
 
-            <mat-card>
-              <mat-form-field>
-                <mat-select [(ngModel)]="noteRootValue"
-                            (selectionChange)="onChangeNoteRoot(noteRootValue)">
-                  <mat-option value="-1"
-                              selected>--</mat-option>
-                  <!-- [value]="food.noteStr" -->
-                  <mat-option *ngFor="let food of notes; let i = index"
-                              [value]="i">
-                    {{food.noteStr}}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-            </mat-card>
-
+            <div class="example-ripple-container">
+              <div *ngFor="let note of notes;let i=index;"
+                   class="example-ripple mat-elevation-z1"
+                   matRipple
+                   (click)="onClickNoteRoot(note,i)"
+                   [ngClass]="{'active mat-elevation-z7' : note.root}">
+                {{note.noteStr}}
+              </div>
+            </div>
+            <!-- ROOT NOTE -->
           </mat-expansion-panel>
 
           <mat-expansion-panel>
 
+            <!-- SCALE -->
             <mat-expansion-panel-header>
               <mat-panel-title>
-                Scales
+                SCALES
               </mat-panel-title>
               <mat-panel-description>
-                Scale notes
+                SCALE NOTES
               </mat-panel-description>
             </mat-expansion-panel-header>
-
-
 
             <div class="example-ripple-container">
               <div *ngFor="let note of notes"
@@ -85,11 +71,12 @@
                 {{note.noteStr}}
               </div>
             </div>
+            <!-- SCALE -->
 
           </mat-expansion-panel>
 
         </mat-accordion>
-        <!-- /guitar options -->
+        <!-- /GUITAR OPTIONS -->
 
       </section>
     </mat-card>
@@ -103,7 +90,7 @@
 
         <section class="mat-typography"
                  style="float: left;">
-          <h2>Guitar</h2>
+          <h2>GUITAR</h2>
         </section>
         <button (click)="showGuitarOptions= (!showGuitarOptions)"
                 mat-icon-button
@@ -112,14 +99,14 @@
         </button>
       </div>
 
-      <!-- guitar options -->
+      <!-- GUITAR OPTIONS -->
       <mat-card *ngIf="showGuitarOptions"
                 style="
 			margin-bottom: 10px;
 		">
 
         <section class="mat-typography">
-          <h4> Guitar Options</h4>
+          <h4>GUITAR OPTIONS</h4>
         </section>
 
         <mat-accordion>
@@ -127,10 +114,10 @@
           <mat-expansion-panel>
             <mat-expansion-panel-header>
               <mat-panel-title>
-                Frets amount
+                FRETS AMOUNT
               </mat-panel-title>
               <mat-panel-description>
-                Currently: <b>{{cantidadTrastes}}</b>
+                CURRENTLY: <b>{{cantidadTrastes}}</b>
               </mat-panel-description>
             </mat-expansion-panel-header>
 
@@ -166,10 +153,10 @@
           <mat-expansion-panel>
             <mat-expansion-panel-header>
               <mat-panel-title>
-                Strings
+                STRINGS
               </mat-panel-title>
               <mat-panel-description>
-                Currently
+                CURRENTLY
               </mat-panel-description>
             </mat-expansion-panel-header>
 
